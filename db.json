@@ -1,0 +1,44 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Computer",
+      "price": 12000,
+      "quantity": 150,
+      "selected": true,
+      "available": true
+    },
+    {
+      "id": 2,
+      "name": "Printer",
+      "price": 1200,
+      "quantity": 150,
+      "selected": false,
+      "available": true
+    },
+    {
+      "id": 3,
+      "name": "Screen Led",
+      "price": 70000,
+      "quantity": 150,
+      "selected": true,
+      "available": false
+    },
+    {
+      "id": 5,
+      "name": "Desktop",
+      "price": 7000,
+      "quantity": 150,
+      "selected": true,
+      "available": true
+    },
+    {
+      "id": 7,
+      "name": "Server",
+      "price": 19000,
+      "quantity": 150,
+      "selected": false,
+      "available": false
+    }
+  ]
+}
