@@ -39,6 +39,22 @@
       "quantity": 150,
       "selected": false,
       "available": false
+    },
+    {
+      "id": 8,
+      "name": "test success",
+      "price": 66,
+      "quantity": 1,
+      "selected": true,
+      "available": true
+    },
+    {
+      "name": "HP Probook",
+      "price": 150000,
+      "quantity": 6,
+      "selected": false,
+      "available": true,
+      "id": 10
     }
   ]
 }

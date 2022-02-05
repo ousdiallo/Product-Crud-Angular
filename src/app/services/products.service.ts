@@ -1,39 +1,53 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { environment } from "src/environments/environment";
-import { Product } from "../model/product.model";
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import {environment} from 'src/environments/environment';
+import {Product} from '../model/product.model';
 
-@Injectable({providedIn:"root"})
-export class ProductsService{
+@Injectable({providedIn: 'root'})
+export class ProductsService {
 
-    host = environment.host;     
-    
-    constructor(private http: HttpClient) {
-        
-    }
+  host = environment.host;
 
-    getAll() : Observable<Product[]>{
-        return this.http.get<Product[]>(this.host+"/products")
-    }
+  constructor(private http: HttpClient) {
 
-    getSelected() : Observable<Product[]>{
-        return this.http.get<Product[]>(this.host+"/products?selected=true")
-    }
-    getAvailable() : Observable<Product[]>{
-        return this.http.get<Product[]>(this.host+"/products?available=true")
-    }
-    search(keyword: string) : Observable<Product[]>{
-        return this.http.get<Product[]>(this.host+"/products?name_like="+keyword)
-    }
+  }
 
-    select(product: Product): Observable<Product>{
-        product.selected = !product.selected;
-        return this.http.put<Product>(this.host+"/products/"+product.id, product)
-    }
+  getAll(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.host + '/products');
+  }
 
-    delete(product: Product): Observable<void>{
-        return this.http.delete<void>(this.host+"/products/"+product.id)
-    }
+  getSelected(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.host + '/products?selected=true');
+  }
+
+  getAvailable(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.host + '/products?available=true');
+  }
+
+  search(keyword: string): Observable<Product[]> {
+    return this.http.get<Product[]>(this.host + '/products?name_like=' + keyword);
+  }
+
+  select(product: Product): Observable<Product> {
+    product.selected = !product.selected;
+    return this.http.put<Product>(this.host + '/products/' + product.id, product);
+  }
+
+  delete(product: Product): Observable<void> {
+    return this.http.delete<void>(this.host + '/products/' + product.id);
+  }
+
+  save(product: Product): Observable<Product> {
+    return this.http.post<Product>(this.host + '/products/', product);
+  }
+
+  getOne(id:number): Observable<Product> {
+    return this.http.get<Product>(this.host + '/products/'+ id);
+  }
+
+  update(product: Product): Observable<Product> {
+    return this.http.put<Product>(this.host + '/products/' + product.id, product);
+  }
 
 }

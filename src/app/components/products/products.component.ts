@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { map, startWith, catchError } from 'rxjs/operators';
 import { Product } from 'src/app/model/product.model';
@@ -12,10 +13,10 @@ import { AppDataState, DataState } from 'src/app/state/product.state';
 })
 export class ProductsComponent implements OnInit {
 
-  productsData$: Observable<AppDataState<Product[]>> | null = null; 
+  productsData$: Observable<AppDataState<Product[]>> | null = null;
   readonly DataState=DataState;
 
-  constructor(private productService:ProductsService) { }
+  constructor(private productService: ProductsService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -26,8 +27,8 @@ export class ProductsComponent implements OnInit {
       startWith({ dataState: DataState.LOADING }),
       catchError(err => of({ dataState: DataState.ERROR, errorMessage: err.message }))
     );
-  } 
-  
+  }
+
   onGetSelected() {
     this.productsData$ = this.productService.getSelected().pipe(
       map((data) => ({ dataState: DataState.LOADED, data: data })),
@@ -63,5 +64,13 @@ export class ProductsComponent implements OnInit {
       this.productService.delete(p).subscribe(data => {
       this.onGetAll();
     })
+  }
+
+  onAddNew() {
+    this.router.navigateByUrl("/add-product")
+  }
+
+  onUpdate(p) {
+    this.router.navigateByUrl("/edit-product/"+p.id);
   }
 }

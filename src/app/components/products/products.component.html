@@ -26,6 +26,11 @@
           Available
         </button>
       </li>
+      <li>
+        <button type="button" class="btn btn-outline-info" (click)="onAddNew()">
+          Add New
+        </button>
+      </li>
     </ul>
 
     <form class="d-flex" #f="ngForm" (ngSubmit)="onSearch(f.value)">
@@ -81,6 +86,11 @@
               >
                 <span *ngIf="p.selected">Unselect</span>
                 <span *ngIf="!p.selected">Select</span>
+              </button>
+            </td>
+            <td>
+              <button class="btn btn-success" (click)="onUpdate(p)">
+                <i class="bi bi-pencil-square"></i>
               </button>
             </td>
             <td>
