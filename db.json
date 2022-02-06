@@ -37,16 +37,8 @@
       "name": "Server",
       "price": 19000,
       "quantity": 150,
-      "selected": false,
-      "available": false
-    },
-    {
-      "id": 8,
-      "name": "test success",
-      "price": 66,
-      "quantity": 1,
       "selected": true,
-      "available": true
+      "available": false
     },
     {
       "name": "HP Probook",
@@ -55,6 +47,22 @@
       "selected": false,
       "available": true,
       "id": 10
+    },
+    {
+      "name": "Iphone X",
+      "price": 180000,
+      "quantity": 10,
+      "selected": true,
+      "available": true,
+      "id": 11
+    },
+    {
+      "name": "Jacket",
+      "price": 15000,
+      "quantity": 10,
+      "selected": true,
+      "available": true,
+      "id": 12
     }
   ]
 }

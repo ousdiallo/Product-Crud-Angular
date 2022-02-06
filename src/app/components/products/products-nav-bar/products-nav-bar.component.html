@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <div class="container">
+    <ul
+      class="navbar navbar-nav d-grid gap-2 d-md-flex justify-content-md-start"
+    >
+      <li>
+        <button type="button" class="btn btn-outline-info" (click)="onGetAll()">
+          All
+        </button>
+      </li>
+      <li>
+        <button
+          type="button"
+          class="btn btn-outline-info"
+          (click)="onGetSelected()"
+        >
+          Selected
+        </button>
+      </li>
+      <li>
+        <button
+          type="button"
+          class="btn btn-outline-info"
+          (click)="onGetAvailable()"
+        >
+          Available
+        </button>
+      </li>
+      <li>
+        <button type="button" class="btn btn-outline-info" (click)="onAddNew()">
+          Add New
+        </button>
+      </li>
+    </ul>
+
+    <form class="d-flex" #f="ngForm" (ngSubmit)="onSearch(f.value)">
+      <input
+        ngModel
+        name="keyword"
+        class="form-control me-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button class="btn btn-outline-info" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
